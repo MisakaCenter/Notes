@@ -6,6 +6,7 @@
 - 应用序可以避免同一表达式重复求值（Lisp采用）
 
 考虑如下程序：
+
 ```scheme
 (define (p) (p))
 (define (test x y)
@@ -13,16 +14,19 @@
         0
         y))
  ```
+ 
  考虑`(test 0 (p))`，如果是应用序求值，0和(p)作为被传入的参数会被立即求值，然而(p)是不停机的，会陷入死循环。如果是正则序求值，(p)则不会被执行，可以得到结果为0。以此可以判断具体解释器的求值策略。
 
 ```Scheme
 (define (new_if x y z) (if x y z))
 ```
+
 考虑new_if，此时由于应用序求值，所以传入的y和z会先被求值再应用于if。行为会与原生的if不同。
 
 ```Scheme
 (if <predicate> <consequent> <alternative>)
 ```
+
 特殊形式具有自己的求值规则：原生的if求值策略为先求值<predicate>，如果得到true则求值<consequent>，否则求值<alternative>。
 
 而new_if会把<consequent>和<alternative>先进行求值。
@@ -58,7 +62,9 @@
       b
       (+ (dec a) (inc b))))
 ```
+
 展开形状：
+
 ```Scheme
 (+ 4 5) ;递归
 (inc (+ 3 5))
@@ -71,6 +77,7 @@
 (inc 8)
 9
 ```
+
 ```Scheme
 (+ 4 5) ;迭代
 (+ 3 6)
@@ -86,6 +93,7 @@
 ### 过程作为参数
 - 通过将过程作为高阶过程的参数，使得高阶过程能注重于概念本身。
 ### lambda 匿名过程
+
 ```Scheme
 ((lambda (<v1> <v2> ... <vn>)
     <body>)
@@ -93,6 +101,7 @@
 ```
 
 ### let 创建局部变量（lambda的语法糖）
+
 ```Scheme
 (let ((<v1> <exp1>)
       (<v2> <exp2>)
@@ -100,6 +109,7 @@
       (<vn> <expn>))
   <body>) 
 ```
+
 ## 4.第一公民（first-class citizens）
 - 可以用变量命名
 - 可以作为参数传递给过程
