@@ -81,3 +81,24 @@
 局部过程：
 - 由于局部过程名都是在该过程运行时创建的框架内进行约束的，并不是在全局环境中进行约束的。
 - 局部过程只需将包含着它们的过程的形参作为自由变量，就可以访问该过程（局部过程的外部过程）的实际参数。因为对于局部过程体的求值是外部过程求值所在的环境的下属。
+
+## 4. 流
+- 只计算需要的部分
+- 使用delay和force来实现流
+- 使用递归定义构造无穷流
+- 延迟求值
+
+```Scheme
+(cons-stream <a> <b>) ;stream
+(cons <a> (delay <b>)) ;等价于
+
+(delay <exp>)
+(lambda () <exp>) ;等价于
+
+(define (force delayed_object)
+    (delayed_object)) ;求值
+
+(define ones (cons-stream 1 ones)) ;1的无穷流
+
+(define integers (cons-stream 1 (add-streams ones integers))) ;整数的无穷流
+```
