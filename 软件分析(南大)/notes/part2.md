@@ -46,3 +46,15 @@ How application-specific data flows through the Nodes (BBs/statement) and Edges 
 - Live variables analysis tells whether the value of variable v at program point p could be used along some path in CFG starting at p. If so, v is live at p; otherwise, v is dead at p.
 - Transfer function: IN = use \/ (OUT - def)
 - ![Algorithm](p2_3.png)
+
+## Available Expressions Analysis (Forward) (Must Anal)
+
+- An expression ***x op y*** is available at p if 
+  - (1) **all** paths from entry to p must pass through the evaluation of ***x op y*** 
+  - (2) after the last evaluation of ***x op y***, there is no redefinition of ***x op y***
+- We can replace ***x op y*** at program point p by the result of its last evaluation
+- ![Algorithm](p2_4.png)
+
+## Analysis Comparison
+
+- ![Analysis Comparison](p2_5.png)
