@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="coqdoc.css" rel="stylesheet" type="text/css" />
+<title></title>
+</head>
+
+<body>
+
+<div id="page">
+
+<div id="header">
+</div>
+
+<div id="main">
+
+<h1 class="libtitle">Library group</h1>
+
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <span class="id" title="var">Setoid</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Section</span> <span class="id" title="var">Group</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Variable</span> <span class="id" title="var">A</span>: <span class="id" title="keyword">Type</span>.<br/>
+<span class="id" title="keyword">Variable</span> <span class="id" title="var">e</span>: <span class="id" title="var">A</span>.<br/>
+<span class="id" title="keyword">Variable</span> <span class="id" title="var">mul</span>: <span class="id" title="var">A</span> -&gt; <span class="id" title="var">A</span> -&gt; <span class="id" title="var">A</span>.<br/>
+<span class="id" title="keyword">Variable</span> <span class="id" title="var">inv</span>: <span class="id" title="var">A</span> -&gt; <span class="id" title="var">A</span>.<br/>
+<span class="id" title="keyword">Notation</span> &quot;x + y" := (<span class="id" title="var">mul</span> <span class="id" title="var">x</span> <span class="id" title="var">y</span>).<br/>
+<span class="id" title="keyword">Notation</span> &quot;- x" := (<span class="id" title="var">inv</span> <span class="id" title="var">x</span> ).<br/>
+<span class="id" title="keyword">Notation</span> &quot;0" := <span class="id" title="var">e</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hypothesis</span> <span class="id" title="var">assoc</span>: <span class="id" title="keyword">forall</span> (<span class="id" title="var">x</span> <span class="id" title="var">y</span> <span class="id" title="var">z</span>: <span class="id" title="var">A</span>), (<span class="id" title="var">x</span> + <span class="id" title="var">y</span>) + <span class="id" title="var">z</span> = <span class="id" title="var">x</span> + (<span class="id" title="var">y</span> + <span class="id" title="var">z</span>).<br/>
+
+<br/>
+<span class="id" title="keyword">Hypothesis</span> <span class="id" title="var">left_unit</span>: <span class="id" title="keyword">forall</span> (<span class="id" title="var">x</span>: <span class="id" title="var">A</span>), 0 + <span class="id" title="var">x</span> = <span class="id" title="var">x</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hypothesis</span> <span class="id" title="var">left_inv</span>: <span class="id" title="keyword">forall</span> (<span class="id" title="var">x</span>: <span class="id" title="var">A</span>), (- <span class="id" title="var">x</span>) + <span class="id" title="var">x</span> = 0.<br/>
+
+<br/>
+<span class="id" title="keyword">Theorem</span> <span class="id" title="var">right_inv</span>: <span class="id" title="keyword">forall</span> (<span class="id" title="var">x</span>: <span class="id" title="var">A</span>), <span class="id" title="var">x</span> + (- <span class="id" title="var">x</span>) = 0.<br/>
+
+<br/>
+<span class="id" title="keyword">Theorem</span> <span class="id" title="var">right_unit</span>: <span class="id" title="keyword">forall</span> (<span class="id" title="var">x</span>: <span class="id" title="var">A</span>), <span class="id" title="var">x</span> + 0 = <span class="id" title="var">x</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Section</span> <span class="id" title="var">Exercise</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Theorem</span> <span class="id" title="var">double_inv</span>: <span class="id" title="keyword">forall</span> (<span class="id" title="var">x</span>: <span class="id" title="var">A</span>), - - <span class="id" title="var">x</span> = <span class="id" title="var">x</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Theorem</span> <span class="id" title="var">funny</span>: <span class="id" title="keyword">forall</span> <span class="id" title="var">x</span> <span class="id" title="var">y</span> <span class="id" title="var">z</span>, (<span class="id" title="var">x</span> + <span class="id" title="var">y</span>) + (-<span class="id" title="var">y</span> + <span class="id" title="var">z</span>) = <span class="id" title="var">x</span> + <span class="id" title="var">z</span>.<br/>
+</div>
+<table>
+<tr>
+<td>Global Index</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td><a href="index.html#global_G">G</a></td>
+<td>H</td>
+<td>I</td>
+<td>J</td>
+<td>K</td>
+<td>L</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+<td>P</td>
+<td>Q</td>
+<td>R</td>
+<td>S</td>
+<td>T</td>
+<td>U</td>
+<td>V</td>
+<td>W</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+<td>_</td>
+<td>other</td>
+<td>(1 entry)</td>
+</tr>
+<tr>
+<td>Library Index</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td><a href="index.html#library_G">G</a></td>
+<td>H</td>
+<td>I</td>
+<td>J</td>
+<td>K</td>
+<td>L</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+<td>P</td>
+<td>Q</td>
+<td>R</td>
+<td>S</td>
+<td>T</td>
+<td>U</td>
+<td>V</td>
+<td>W</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+<td>_</td>
+<td>other</td>
+<td>(1 entry)</td>
+</tr>
+</table>
+<hr/>
+<h1>Global Index</h1>
+<a id="global_G"></a><h2>G </h2>
+<a href="group.html">group</a> [library]<br/>
+<br/><br/><hr/>
+<h1>Library Index</h1>
+<a id="library_G"></a><h2>G </h2>
+<a href="group.html">group</a> <br/>
+<br/><br/><hr/><table>
+<tr>
+<td>Global Index</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td><a href="index.html#global_G">G</a></td>
+<td>H</td>
+<td>I</td>
+<td>J</td>
+<td>K</td>
+<td>L</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+<td>P</td>
+<td>Q</td>
+<td>R</td>
+<td>S</td>
+<td>T</td>
+<td>U</td>
+<td>V</td>
+<td>W</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+<td>_</td>
+<td>other</td>
+<td>(1 entry)</td>
+</tr>
+<tr>
+<td>Library Index</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td><a href="index.html#library_G">G</a></td>
+<td>H</td>
+<td>I</td>
+<td>J</td>
+<td>K</td>
+<td>L</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+<td>P</td>
+<td>Q</td>
+<td>R</td>
+<td>S</td>
+<td>T</td>
+<td>U</td>
+<td>V</td>
+<td>W</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+<td>_</td>
+<td>other</td>
+<td>(1 entry)</td>
+</tr>
+</table>
+<hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
+</div>
+
+</div>
+
+</body>
+</html>
