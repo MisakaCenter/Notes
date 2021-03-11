@@ -62,3 +62,80 @@ Proof.
   rewrite right_unit.
   reflexivity.
 Qed.
+
+Print funny.
+
+End Exercise.
+End Group.
+
+Section Peano_Number.
+
+Inductive nat := 
+| O
+| S (n: nat)
+.
+
+Fixpoint plus (n m: nat): nat :=
+match n with
+| O => m
+| S x => S (plus x m)
+end.
+
+Notation "x + y" := (plus x y).
+
+Theorem plus_right_unit: forall x: nat, x + O = x.
+Proof.
+  intro x.
+  induction x.
+  - simpl. reflexivity.
+  - simpl. rewrite IHx. reflexivity.
+Qed.
+
+Lemma plus_1: forall x:nat, S x = x + S O.
+Proof.
+  intros.
+  induction x.
+  - simpl. reflexivity.
+  - rewrite IHx at 1. 
+    simpl.
+    reflexivity.
+Qed.
+
+Theorem plus_comm: forall (x y: nat), x + y = y + x.
+Proof.
+  induction x.
+  - simpl. induction y.
+    + reflexivity.
+    + simpl. rewrite <- IHy. reflexivity.
+  - simpl. induction y.
+    + rewrite plus_right_unit. simpl. reflexivity.
+    + simpl. 
+        rewrite <- IHy.
+        rewrite IHx.
+        simpl. 
+        rewrite IHx. 
+        reflexivity.
+Qed.
+
+Section Exercise.
+
+Theorem plus_S: forall x y: nat , x + S y = S (x + y).
+Proof.
+  intros.
+  rewrite plus_comm.
+  simpl.
+  rewrite plus_comm.
+  reflexivity.
+Qed.
+
+Theorem plus_assoc: forall (x y z: nat), (x + y) + z = x + (y + z).
+Proof.
+  intros.
+  induction x.
+  - simpl. reflexivity.
+  - simpl. rewrite IHx. reflexivity.
+Qed.
+
+End Exercise.
+
+End Peano_Number.
